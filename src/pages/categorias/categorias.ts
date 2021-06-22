@@ -17,7 +17,7 @@ import { CategoriaDTO } from '../../models/categoria.dto';
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage {
-  
+
   bucketUrl: string = API_CONFIG.bucketBaseUrl;
 
   items: CategoriaDTO[];
@@ -31,7 +31,7 @@ export class CategoriasPage {
   ionViewDidLoad() {
     this.categoraService.findAll()
       .subscribe(response => { this.items = response; },
-        error => { console.log(error); });
+        error => { });
   }
 
 
