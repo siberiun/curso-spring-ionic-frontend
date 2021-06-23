@@ -1,7 +1,6 @@
 import { STORAGE_KEYS } from './../config/storage_keys.config';
 import { Injectable } from "@angular/core";
 import { LocalUser } from "../models/local_user";
-import { JsonpCallbackContext } from '@angular/common/http/src/jsonp';
 
 @Injectable()
 export class StorageService{
