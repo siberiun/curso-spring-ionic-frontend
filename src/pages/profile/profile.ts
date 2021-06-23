@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { API_CONFIG } from './../../config/api.config';
 import { ClienteDTO } from './../../models/cliente.dto';
 import { StorageService } from './../../services/storage.service';
@@ -29,15 +30,22 @@ export class ProfilePage {
           this.cliente = response;
           this.getImageIfExists();
         },
-          error => { });
+          error => {
+            if (error.status == 403) {
+              this.navCtrl.setRoot('HomePage');
+            }
+          });
+    }
+    else {
+      this.navCtrl.setRoot('HomePage');
     }
   }
 
-  getImageIfExists(){
+  getImageIfExists() {
     this.clienteService.getImageFromBucket(this.cliente.id).subscribe(response => {
       this.cliente.imageUrl = `${API_CONFIG.bucketBaseUrl}/cp${this.cliente.id}.jpg`;
     },
-    error => {});
+      error => { });
   }
 
 }
