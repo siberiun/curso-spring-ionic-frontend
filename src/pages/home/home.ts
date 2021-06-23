@@ -1,3 +1,4 @@
+import { SignupPage } from './../signup/signup';
 import { AuthService } from './../../services/auth.service';
 import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { Component } from '@angular/core';
@@ -43,5 +44,9 @@ export class HomePage {
     }, error => { }
     );
 
+  }
+
+  signup() {
+    this.navCtrl.push('SignupPage');
   }
 }
