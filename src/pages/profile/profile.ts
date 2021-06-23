@@ -1,4 +1,3 @@
-import { HomePage } from './../home/home';
 import { API_CONFIG } from './../../config/api.config';
 import { ClienteDTO } from './../../models/cliente.dto';
 import { StorageService } from './../../services/storage.service';
