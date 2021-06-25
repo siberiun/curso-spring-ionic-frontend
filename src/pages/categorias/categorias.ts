@@ -1,3 +1,4 @@
+import { ProdutosPage } from './../produtos/produtos';
 import { API_CONFIG } from './../../config/api.config';
 import { CategoriaService } from './../../services/domain/categoria.service';
 import { Component } from '@angular/core';
@@ -32,6 +33,10 @@ export class CategoriasPage {
     this.categoraService.findAll()
       .subscribe(response => { this.items = response; },
         error => { });
+  }
+
+  showProdutos(){
+    this.navCtrl.push('ProdutosPage');
   }
 
 
