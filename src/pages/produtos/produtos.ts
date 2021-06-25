@@ -1,4 +1,3 @@
-import { ProdutoDetailPage } from './../produto-detail/produto-detail';
 import { HttpClient } from '@angular/common/http';
 import { API_CONFIG } from './../../config/api.config';
 import { ProdutoDTO } from './../../models/produto.dto';
