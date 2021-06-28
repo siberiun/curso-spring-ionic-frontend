@@ -1,3 +1,5 @@
+import { CategoriasPage } from './../categorias/categorias';
+import { ProdutoDTO } from './../../models/produto.dto';
 import { API_CONFIG } from './../../config/api.config';
 import { ProdutoService } from './../../services/domain/produto.service';
 import { Component } from '@angular/core';
@@ -34,6 +36,26 @@ export class CartPage {
       },
         error => { });
     }
+  }
+
+  removeItem(produto: ProdutoDTO) {
+    this.items = this.cartService.removeProduto(produto).items;
+  }
+
+  increaseQuantity(produto: ProdutoDTO) {
+    this.items = this.cartService.increaseQuantity(produto).items;
+  }
+
+  decreaseQuantity(produto: ProdutoDTO) {
+    this.items = this.cartService.decreaseQuantity(produto).items;
+  }
+
+  total() : number {
+    return this.cartService.total();
+  }  
+
+  goOn(){
+    this.navCtrl.setRoot('CategoriasPage');
   }
 
 }
