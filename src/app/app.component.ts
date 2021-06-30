@@ -1,4 +1,3 @@
-import { CartPage } from './../pages/cart/cart';
 import { AuthService } from './../services/auth.service';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';

@@ -1,4 +1,3 @@
-import { CategoriasPage } from './../categorias/categorias';
 import { ProdutoDTO } from './../../models/produto.dto';
 import { API_CONFIG } from './../../config/api.config';
 import { ProdutoService } from './../../services/domain/produto.service';
@@ -56,6 +55,10 @@ export class CartPage {
 
   goOn(){
     this.navCtrl.setRoot('CategoriasPage');
+  }
+
+  checkout(){
+    this.navCtrl.push('PickAddressPage')
   }
 
 }
