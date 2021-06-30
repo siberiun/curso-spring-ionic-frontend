@@ -1,3 +1,4 @@
+import { PaymentPage } from './../payment/payment';
 import { PedidoDTO } from './../../models/pedido.dto';
 import { CartService } from './../../services/domain/cart.service';
 import { ClienteService } from './../../services/domain/cliente.service';
@@ -50,9 +51,12 @@ export class PickAddressPage {
     }
   }
 
-  nextPage(item: EnderecoDTO){
-    this.pedido.enderecoDeEntrega = {id: item.id};
-    console.log(this.pedido);
+  nextPage(item: EnderecoDTO) {
+    this.pedido.enderecoDeEntrega = { id: item.id };
+    /*
+    Chamado uma tela empilhada e passando um parametro pedido
+    */
+    this.navCtrl.push('PaymentPage', { pedido: this.pedido });
   }
 
 }
