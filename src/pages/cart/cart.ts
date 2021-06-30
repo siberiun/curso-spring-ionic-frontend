@@ -3,7 +3,7 @@ import { API_CONFIG } from './../../config/api.config';
 import { ProdutoService } from './../../services/domain/produto.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CardItem } from '../../models/cart-item';
+import { CartItem } from '../../models/cart-item';
 import { CartService } from '../../services/domain/cart.service';
 
 @IonicPage()
@@ -12,7 +12,7 @@ import { CartService } from '../../services/domain/cart.service';
   templateUrl: 'cart.html',
 })
 export class CartPage {
-  items: CardItem[];
+  items: CartItem[];
 
   constructor(
     public navCtrl: NavController,

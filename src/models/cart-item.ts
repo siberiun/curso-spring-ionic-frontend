@@ -1,6 +1,6 @@
 import { ProdutoDTO } from './produto.dto';
 
-export interface CardItem{
+export interface CartItem{
     quantidade: number,
     produto: ProdutoDTO
 }
