@@ -1,4 +1,3 @@
-import { OrderConfirmationPage } from './../order-confirmation/order-confirmation';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PedidoDTO } from './../../models/pedido.dto';
 import { Component } from '@angular/core';

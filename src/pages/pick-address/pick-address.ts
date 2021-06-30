@@ -1,4 +1,3 @@
-import { PaymentPage } from './../payment/payment';
 import { PedidoDTO } from './../../models/pedido.dto';
 import { CartService } from './../../services/domain/cart.service';
 import { ClienteService } from './../../services/domain/cliente.service';
