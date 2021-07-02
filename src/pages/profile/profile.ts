@@ -2,7 +2,7 @@ import { API_CONFIG } from './../../config/api.config';
 import { ClienteDTO } from './../../models/cliente.dto';
 import { StorageService } from './../../services/storage.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { ClienteService } from '../../services/domain/cliente.service';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 
@@ -23,7 +23,8 @@ export class ProfilePage {
     public navParams: NavParams,
     public storage: StorageService,
     public clienteService: ClienteService,
-    public camera: Camera) {
+    public camera: Camera,
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -75,18 +76,48 @@ export class ProfilePage {
     });
   }
 
+  getGalleryPicture() {
+
+    this.cameraOn = true;
+
+    const options: CameraOptions = {
+      quality: 100,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.picture = 'data:image/png;base64,' + imageData;
+      this.cameraOn = false;
+    }, (err) => {
+    });
+  }
+
   sendPicture() {
+    let loader = this.presentLoading();
     this.clienteService.uploadPicture(this.picture)
       .subscribe(response => {
         this.picture = null;
+        loader.dismiss();
         this.loadData();
       }, error => {
-
+        loader.dismiss();
       });
   }
 
   cancel() {
     this.picture = null;
+  }
+
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Enviando..."
+    });
+    loader.present();
+    return loader;
   }
 
 }
