@@ -73,6 +73,7 @@ export class ProfilePage {
       this.picture = 'data:image/png;base64,' + imageData;
       this.cameraOn = false;
     }, (err) => {
+      this.cameraOn = false;
     });
   }
 
@@ -81,7 +82,7 @@ export class ProfilePage {
     this.cameraOn = true;
 
     const options: CameraOptions = {
-      quality: 100,
+      quality: 30,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
@@ -93,6 +94,7 @@ export class ProfilePage {
       this.picture = 'data:image/png;base64,' + imageData;
       this.cameraOn = false;
     }, (err) => {
+      this.cameraOn = false;
     });
   }
 
